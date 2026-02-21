@@ -1,0 +1,285 @@
+/* ===========================
+   AFURI Quiz App - Styles
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Phone Frame */
+.phone-frame {
+    width: 393px;
+    height: 852px;
+    background-color: #fafafa;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+/* Status Bar */
+.status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 15px 0 15px;
+    z-index: 30;
+}
+
+.status-time {
+    font-family: -apple-system, 'SF Pro', sans-serif;
+    font-weight: 600;
+    font-size: 15.5px;
+    color: #222;
+    line-height: 20px;
+    padding-left: 5px;
+}
+
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 5px;
+}
+
+.signal-icon {
+    width: 18px;
+    height: 12px;
+}
+
+.wifi-icon {
+    width: 16px;
+    height: 12px;
+}
+
+.battery-icon {
+    width: 25px;
+    height: 12px;
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 139px;
+    background-color: #ededed;
+    border-radius: 16px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 16px;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-title-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #222;
+    letter-spacing: -0.35px;
+    line-height: 1.5;
+}
+
+.dropdown-arrow {
+    margin-top: 4px;
+}
+
+.header-subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #222;
+    letter-spacing: -0.12px;
+    line-height: 1.5;
+}
+
+/* Map Area */
+.map-area {
+    position: absolute;
+    top: 139px;
+    left: 0;
+    right: 0;
+    bottom: 248px;
+    overflow: hidden;
+}
+
+/* Map shapes */
+.map-shape {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.map-shape img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Center shape (YOU) */
+.center-shape {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-shape img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.you-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'DIN Alternate', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #959595;
+    line-height: 1.2;
+    z-index: 15;
+    white-space: nowrap;
+}
+
+/* Timer Badge */
+.timer-badge {
+    position: absolute;
+    top: 22px;
+    right: 18px;
+    background: white;
+    border-radius: 16px 16px 0 16px;
+    padding: 5px 18px;
+    font-family: 'DIN Alternate', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #222;
+    letter-spacing: -0.43px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+/* Quiz Section */
+.quiz-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 248px;
+    background-color: #fafafa;
+    border-radius: 24px 24px 0 0;
+    padding: 15px 31px 30px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+.quiz-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 8px;
+    letter-spacing: -0.14px;
+    padding-left: 22px;
+}
+
+.quiz-question {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #222;
+    letter-spacing: -0.18px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.quiz-options {
+    display: flex;
+    gap: 9px;
+}
+
+.quiz-option {
+    flex: 1;
+    height: 121px;
+    background: white;
+    border: 1px solid rgba(34, 34, 34, 0.05);
+    border-radius: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #222;
+    cursor: pointer;
+    letter-spacing: -0.18px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.quiz-option:active {
+    transform: translateY(0);
+    background: #e8e8e8;
+}
+
+/* Responsive */
+@media (max-width: 430px) {
+    .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+}

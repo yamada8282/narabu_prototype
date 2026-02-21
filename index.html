@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFURI - Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="phone-frame">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-time">9:41</span>
+      <div class="status-icons">
+        <svg class="signal-icon" width="18" height="12" viewBox="0 0 18 12" fill="none">
+          <rect x="0" y="8" width="3" height="4" rx="0.5" fill="#222" />
+          <rect x="4" y="5.5" width="3" height="6.5" rx="0.5" fill="#222" />
+          <rect x="8" y="3" width="3" height="9" rx="0.5" fill="#222" />
+          <rect x="12" y="0" width="3" height="12" rx="0.5" fill="#222" />
+        </svg>
+        <svg class="wifi-icon" width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 11.5a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z" fill="#222" />
+          <path d="M4.93 8.43a4.34 4.34 0 016.14 0" stroke="#222" stroke-width="1.3" stroke-linecap="round" />
+          <path d="M2.46 5.96a7.82 7.82 0 0111.08 0" stroke="#222" stroke-width="1.3" stroke-linecap="round" />
+          <path d="M0 3.5a11.3 11.3 0 0116 0" stroke="#222" stroke-width="1.3" stroke-linecap="round" />
+        </svg>
+        <svg class="battery-icon" width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="2" stroke="#222" stroke-opacity="0.35" />
+          <rect x="2" y="2" width="18" height="8" rx="1" fill="#222" />
+          <path d="M23 4v4a2 2 0 000-4z" fill="#222" fill-opacity="0.4" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <button class="menu-btn" aria-label="メニュー">
+        <svg width="24" height="18" viewBox="0 0 24 18" fill="none">
+          <rect y="0" width="24" height="2.5" rx="1.25" fill="#222" />
+          <rect y="7.5" width="24" height="2.5" rx="1.25" fill="#222" />
+          <rect y="15" width="24" height="2.5" rx="1.25" fill="#222" />
+        </svg>
+      </button>
+      <div class="header-title-group">
+        <div class="header-title-row">
+          <span class="header-title">AFURI</span>
+          <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="#222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span class="header-subtitle">阿夫利</span>
+      </div>
+    </div>
+
+    <!-- Map Area -->
+    <div class="map-area" id="mapArea">
+      <!-- Timer badge -->
+      <div class="timer-badge">10min...</div>
+
+      <!-- SVG shapes will be placed here by JavaScript -->
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="quiz-section">
+      <div class="quiz-label">quiz</div>
+      <p class="quiz-question">Qお店の発祥は？</p>
+      <div class="quiz-options">
+        <button class="quiz-option">A.東京</button>
+        <button class="quiz-option">B.北海道</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
