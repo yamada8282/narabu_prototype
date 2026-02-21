@@ -152,13 +152,38 @@ body {
 /* Map shapes */
 .map-shape {
     position: absolute;
-    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
 }
 
 .map-shape img {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+/* Floating animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes floatCenter {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-8px);
+    }
 }
 
 /* Center shape (YOU) */

@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   centerImg.src = centerSrc;
   centerImg.alt = 'YOU';
   centerDiv.appendChild(centerImg);
+  centerDiv.style.animation = 'floatCenter 3.5s ease-in-out infinite';
   mapArea.appendChild(centerDiv);
 
   // YOU label above center shape
@@ -104,6 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.top = pos.y + 'px';
     div.style.transform = `rotate(${rotation}deg)`;
     div.style.opacity = 0.85 + Math.random() * 0.15;
+
+    // Random float animation delay & duration
+    const duration = 2.5 + Math.random() * 2; // 2.5s ~ 4.5s
+    const delay = Math.random() * 3; // 0 ~ 3s delay
+    div.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
 
     const img = document.createElement('img');
     img.src = shape.src;
