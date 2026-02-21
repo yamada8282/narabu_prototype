@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Avoid placing shapes too close to center or overlapping the timer badge
   const centerX = mapWidth / 2;
   const centerY = mapHeight / 2;
-  const centerExclusionRadius = 90; // center shape exclusion zone
+  const centerExclusionRadius = 115; // center shape exclusion zone
 
   // === Place center shape (YOU) ===
-  const centerSize = 100; // larger than others
+  const centerSize = 130; // larger than others
   const centerDiv = document.createElement('div');
   centerDiv.className = 'center-shape';
   centerDiv.style.width = centerSize + 'px';
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Place scattered shapes
-  const shapeSize = 55; // all non-center shapes same size
+  const shapeSize = 72; // all non-center shapes same size
   for (let i = 0; i < TOTAL_SHAPES; i++) {
     const shape = shapes[Math.floor(Math.random() * shapes.length)];
 
