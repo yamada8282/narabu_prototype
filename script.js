@@ -97,26 +97,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const pos = getRandomPosition(size);
     const rotation = Math.floor(Math.random() * 360);
 
-    const div = document.createElement('div');
-    div.className = 'map-shape';
-    div.style.width = size + 'px';
-    div.style.height = size + 'px';
-    div.style.left = pos.x + 'px';
-    div.style.top = pos.y + 'px';
-    div.style.transform = `rotate(${rotation}deg)`;
-    div.style.opacity = 0.85 + Math.random() * 0.15;
+    // Outer div: positioning + float animation
+    const wrapper = document.createElement('div');
+    wrapper.className = 'map-shape';
+    wrapper.style.width = size + 'px';
+    wrapper.style.height = size + 'px';
+    wrapper.style.left = pos.x + 'px';
+    wrapper.style.top = pos.y + 'px';
+    wrapper.style.opacity = 0.85 + Math.random() * 0.15;
 
     // Random float animation delay & duration
-    const duration = 2.5 + Math.random() * 2; // 2.5s ~ 4.5s
-    const delay = Math.random() * 3; // 0 ~ 3s delay
-    div.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+    const duration = 2.5 + Math.random() * 2;
+    const delay = Math.random() * 3;
+    wrapper.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+    // Inner div: rotation (not affected by animation)
+    const inner = document.createElement('div');
+    inner.style.width = '100%';
+    inner.style.height = '100%';
+    inner.style.transform = `rotate(${rotation}deg)`;
 
     const img = document.createElement('img');
     img.src = shape.src;
     img.alt = shape.name;
-    div.appendChild(img);
+    inner.appendChild(img);
+    wrapper.appendChild(inner);
 
-    mapArea.appendChild(div);
+    mapArea.appendChild(wrapper);
     placedPositions.push({ x: pos.x, y: pos.y, size });
   }
 
