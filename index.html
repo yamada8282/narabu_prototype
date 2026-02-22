@@ -3,62 +3,284 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AFURI - Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ナラブ - AFURI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="phone-frame">
 
+    <!-- ===== Screen 1: Splash ===== -->
+    <div class="screen active" id="screen-splash">
+      <div class="splash-content">
+        <img class="splash-logo" src="logo.svg" alt="ナラブ" />
+      </div>
+    </div>
 
-    <!-- Header -->
-    <div class="header">
-      <button class="menu-btn" aria-label="メニュー">
-        <svg width="24" height="18" viewBox="0 0 24 18" fill="none">
-          <rect y="0" width="24" height="2.5" rx="1.25" fill="#222" />
-          <rect y="7.5" width="24" height="2.5" rx="1.25" fill="#222" />
-          <rect y="15" width="24" height="2.5" rx="1.25" fill="#222" />
-        </svg>
-      </button>
-      <div class="header-title-group">
-        <div class="header-title-row">
-          <span class="header-title">AFURI</span>
-          <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-            <path d="M1 1l4 4 4-4" stroke="#222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- ===== Screen 2: Main (Quiz Map) ===== -->
+    <div class="screen" id="screen-main">
+      <!-- Header -->
+      <div class="main-header">
+        <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+          <svg width="24" height="18" viewBox="0 0 24 18" fill="none">
+            <rect y="0" width="24" height="2.5" rx="1.25" fill="#222" />
+            <rect y="7.5" width="24" height="2.5" rx="1.25" fill="#222" />
+            <rect y="15" width="24" height="2.5" rx="1.25" fill="#222" />
+          </svg>
+        </button>
+        <div class="main-header-center">
+          <img class="header-ramen-icon" src="Group 2095.svg" alt="" />
+          <span class="header-store-name">AFURI</span>
+        </div>
+      </div>
+
+      <!-- Progress stepper -->
+      <div class="progress-stepper">
+        <div class="stepper-track">
+          <div class="stepper-fill" style="width: 40%;"></div>
+        </div>
+        <div class="stepper-dot active" style="left: 10%;"></div>
+        <div class="stepper-dot active" style="left: 30%;"></div>
+        <div class="stepper-dot" style="left: 50%;"></div>
+        <div class="stepper-dot" style="left: 70%;"></div>
+        <div class="stepper-dot" style="left: 90%;"></div>
+      </div>
+
+      <!-- Map Area -->
+      <div class="map-area" id="mapArea">
+        <div class="timer-badge">10min...</div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <img class="quiz-frame-bg" src="quiz-frame.svg" alt="" />
+        <div class="quiz-content">
+          <div class="quiz-tab-label">quiz</div>
+          <p class="quiz-question">Qお店の発祥は？</p>
+          <div class="quiz-progress">
+            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option">A.東京</button>
+            <button class="quiz-option">B.北海道</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Overlay -->
+      <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-panel">
+          <button class="menu-item" data-screen="screen-store">STORE情報</button>
+          <button class="menu-item" data-screen="screen-quiz-level">クイズレベル</button>
+        </div>
+      </div>
+
+      <!-- Notification Banner -->
+      <div class="notification-banner" id="notifBanner">
+        <div class="notif-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#35C6C1" />
+            <text x="5" y="22" font-family="'Noto Sans JP'" font-weight="700" font-size="12" fill="white">ナラブ</text>
           </svg>
         </div>
-        <span class="header-subtitle">阿夫利</span>
-      </div>
-    </div>
-
-    <!-- Map Area -->
-    <div class="map-area" id="mapArea">
-      <!-- Timer badge -->
-      <div class="timer-badge">10min...</div>
-
-      <!-- SVG shapes will be placed here by JavaScript -->
-    </div>
-
-    <!-- Quiz Section -->
-    <div class="quiz-section">
-      <img class="quiz-frame-bg" src="quiz-frame.svg" alt="" />
-      <div class="quiz-content">
-        <div class="quiz-tab-label">quiz</div>
-        <p class="quiz-question">Qお店の発祥は？</p>
-        <div class="quiz-progress">
-          <div class="quiz-progress-bar" id="quizProgressBar"></div>
-        </div>
-        <div class="quiz-options">
-          <button class="quiz-option">A.東京</button>
-          <button class="quiz-option">B.北海道</button>
+        <div class="notif-text">
+          <div class="notif-header">
+            <span class="notif-label">即時通知</span>
+            <span class="notif-app">ナラブ</span>
+          </div>
+          <p class="notif-message">新しい情報が解禁しました。</p>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- ===== Screen 3: Profile ===== -->
+    <div class="screen" id="screen-profile">
+      <div class="screen-header">
+        <button class="back-btn" data-screen="screen-main">
+          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+            <path d="M10 2L2 10L10 18" stroke="#222" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <span class="screen-title">YOU</span>
+      </div>
+      <div class="profile-body">
+        <div class="profile-speech">egg to anataイチオシ！</div>
+        <div class="profile-badge-main">
+          <img src="Vector-1.svg" alt="メインバッジ" class="badge-main-img" />
+          <div class="badge-next">
+            <span class="badge-next-label">あと三問</span>
+            <img src="Group-1.svg" alt="次のバッジ" class="badge-next-img" />
+          </div>
+        </div>
+        <p class="profile-section-title">獲得バッチ一覧</p>
+        <div class="badge-list">
+          <div class="badge-item">
+            <img src="Group-1.svg" alt="badge" class="badge-icon" />
+            <span>egg to anata</span>
+          </div>
+          <div class="badge-item">
+            <img src="nahaha.svg" alt="badge" class="badge-icon" />
+            <span>nahaha</span>
+          </div>
+          <div class="badge-item">
+            <img src="firework.svg" alt="badge" class="badge-icon" />
+            <span>firewolk</span>
+          </div>
+        </div>
+        <div class="photo-section">
+          <p class="photo-section-title">写真一覧</p>
+          <div class="photo-grid">
+            <div class="photo-card">
+              <div class="photo-placeholder" style="background:#e8d5c4;">🍝</div>
+              <span class="photo-label">シチューとペペロンチーノ</span>
+              <span class="photo-likes">♡ 10</span>
+            </div>
+            <div class="photo-card">
+              <div class="photo-placeholder" style="background:#d4c5a0;">🥟</div>
+              <span class="photo-label">餃子</span>
+              <span class="photo-likes">♡ 8</span>
+            </div>
+            <div class="photo-card">
+              <div class="photo-placeholder" style="background:#c9a96e;">🍛</div>
+              <span class="photo-label">カレー</span>
+              <span class="photo-likes">♡ 5</span>
+            </div>
+            <div class="photo-card">
+              <div class="photo-placeholder" style="background:#d4a574;">🍗</div>
+              <span class="photo-label">唐揚げ</span>
+              <span class="photo-likes">♡ 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Screen 4: STORE Info ===== -->
+    <div class="screen" id="screen-store">
+      <div class="screen-header">
+        <button class="back-btn" data-screen="screen-main">
+          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+            <path d="M10 2L2 10L10 18" stroke="#222" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <span class="screen-title">STORE情報</span>
+      </div>
+      <div class="store-body">
+        <div class="store-icon-wrap">
+          <img src="Group 2095.svg" alt="AFURI" class="store-ramen-icon" />
+        </div>
+        <p class="store-name">AFURI</p>
+        <p class="store-catchphrase">爽やかなラーメン新体験</p>
+        <hr class="store-divider" />
+        <p class="store-description">
+          神奈川県阿夫利山から生まれたらーめん店AFURIです！<br>
+          柚子塩らーめんをはじめ、厳選素材の旨味を丁寧に抽出した<br>
+          正統派の淡麗系らーめんで皆さまをお迎えします〜！
+        </p>
+        <div class="store-unlock-section">
+          <div class="unlock-header">
+            <span class="unlock-title">解禁情報</span>
+            <span class="unlock-hint">進むことによって情報が解禁していくよ！</span>
+          </div>
+          <button class="unlock-card unlocked">美味しい食べ方</button>
+          <button class="unlock-card unlocked">当店限定メニュー</button>
+          <button class="unlock-card locked">
+            秘密情報
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+              <rect x="1" y="8" width="14" height="11" rx="2" fill="#ccc" />
+              <path d="M4 8V5a4 4 0 118 0v3" stroke="#ccc" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Screen 5: Quiz Level ===== -->
+    <div class="screen" id="screen-quiz-level">
+      <div class="screen-header">
+        <button class="back-btn" data-screen="screen-main">
+          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+            <path d="M10 2L2 10L10 18" stroke="#222" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <span class="screen-title">クイズレベル</span>
+      </div>
+      <div class="level-body">
+        <p class="level-badge-title">AFURI専用バッチ</p>
+        <p class="level-badge-desc">クイズに答えて正解すると、バッチの形が変化していくよ！<br>たくさん答えて、全部のバッチをGetしよう！</p>
+        <div class="level-list">
+          <div class="level-item">
+            <span class="level-label">レベル１</span>
+            <div class="level-row">
+              <div class="level-icon" style="background: #E0F7FA;">
+                <img src="Vector-1.svg" alt="" />
+              </div>
+              <div class="level-info">
+                <span class="level-name" style="color: #35C6C1;">ねぎ</span>
+                <span class="level-desc">みんな最初はここからスタート！</span>
+              </div>
+            </div>
+          </div>
+          <div class="level-item">
+            <span class="level-label">レベル２</span>
+            <div class="level-row">
+              <div class="level-icon" style="background: #F3E5F5;">
+                <img src="Group-1.svg" alt="" />
+              </div>
+              <div class="level-info">
+                <span class="level-name" style="color: #E040FB;">なると</span>
+                <span class="level-desc">1個欲しいけど、何個もいらない、、？</span>
+              </div>
+            </div>
+          </div>
+          <div class="level-item">
+            <span class="level-label">レベル３</span>
+            <div class="level-row">
+              <div class="level-icon" style="background: #FFF3E0;">
+                <img src="Group.svg" alt="" />
+              </div>
+              <div class="level-info">
+                <span class="level-name" style="color: #F5A623;">たまご</span>
+                <span class="level-desc">たくさん食べるとお腹いっぱい！！</span>
+              </div>
+            </div>
+          </div>
+          <div class="level-item">
+            <span class="level-label">レベル４</span>
+            <div class="level-row">
+              <div class="level-icon" style="background: #E8F5E9;">
+                <img src="Vector.svg" alt="" />
+              </div>
+              <div class="level-info">
+                <span class="level-name" style="color: #22A19D;">のり</span>
+                <span class="level-desc">汁につけてもヨシ！そのままでもヨシ！</span>
+              </div>
+            </div>
+          </div>
+          <div class="level-item">
+            <span class="level-label">レベル５</span>
+            <div class="level-row">
+              <div class="level-icon" style="background: #FFF3E0;">
+                <img src="Group-2.svg" alt="" />
+              </div>
+              <div class="level-info">
+                <span class="level-name" style="color: #F37252;">チャーシュー</span>
+                <span class="level-desc">あればあるだけ美味しい！！</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .phone-frame -->
 
   <script src="script.js"></script>
 </body>
